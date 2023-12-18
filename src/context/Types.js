@@ -1,1 +1,7 @@
 export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
+export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID';
+export const SEARCH_PRODUCT = 'SEARCH_PRODUCT';
+export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY';
+export const FILTER_RANGE_PRICE = 'FILTER_RANGE_PRICE';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const GET_CART = 'GET_CART';
