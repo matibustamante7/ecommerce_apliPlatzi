@@ -17,11 +17,11 @@ export default function SubMenu() {
     const [max, setMax] = useState(0)
 
     const handleChangeMinPrice = (e) =>{
-        setMin(e.target.value)
+        setMin(Number(e.target.value))
     }
 
     const handleChangeMaxPrice = (e) =>{
-        setMax(e.target.value)
+        setMax(Number(e.target.value))
     }
 
     const handleFilterByPrice = () =>{
@@ -30,8 +30,10 @@ export default function SubMenu() {
     }
 
     return (
-        <div>
-            <select onChange={handleChangeCategory}>
+        <div className="flex items-center justify-between max-w-md p-2 flex-col sm:w-40">
+            <select onChange={handleChangeCategory} 
+                    className="bg-zinc-300 text-zinc-900 px-4 py-2 rounded hover:bg-zinc-400  hover:shadow-lg transition-all delay-50"
+                    >
                 <option value='1'>Clothes</option>
                 <option value='2'>Electronics</option>
                 <option value='3'>Furniture</option>
@@ -39,11 +41,14 @@ export default function SubMenu() {
                 <option value='5'>Miscellaneous</option>
             </select>
 
-            <div>
-                <h3>Range Price</h3>
-                <input type="text" onChange={handleChangeMinPrice} placeholder="Min..." />
-                <input type="text" onChange={handleChangeMaxPrice} placeholder="Max..." />
-                <button onClick={handleFilterByPrice}>See products</button>
+            <div  className="relative mt-2 rounded-md shadow-sm flex gap-2">
+                
+                <input type="number" onChange={handleChangeMinPrice} placeholder="Min..." 
+                className="p-2 w-24 rounded-md border-none text-zinc-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"/>
+                <input type="number" onChange={handleChangeMaxPrice} placeholder="Max..."
+                className="p-2 w-24 rounded-md border-none text-zinc-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6" />
+                <button onClick={handleFilterByPrice}
+                className="bg-zinc-300 text-zinc-900 px-4 py-2 rounded hover:bg-zinc-400  hover:shadow-lg transition-all delay-50">See products</button>
             </div>
         </div>
     )

@@ -1,7 +1,5 @@
 import { useContext } from "react"
 import CartContext from '../../context/Cart/CartContext'
-import DeleteIcon from '@mui/icons-material/Delete';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 export default function Cart() {
 
     const { cart } = useContext(CartContext)
@@ -31,8 +29,6 @@ export default function Cart() {
                             </div>
                             <div>
                                 <p>Actions</p>
-                                <DeleteIcon color="warning"  />
-                                <DeleteForeverIcon color="error" />
                             </div>
                         </div>
                     ))
