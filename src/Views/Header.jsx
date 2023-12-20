@@ -11,13 +11,15 @@ export default function Header() {
 
     const { cart } = useContext(CartContext)
 
-    const [stateShowCart, setStateShowCart] = useState(false)
+    const [stateShowCart, setStateShowCart] = useState(false);
 
     const handleShowCart = () => {
-        // console.log(cart);
-        setStateShowCart(true)
+        setStateShowCart(true);
     }
 
+    const handleCloseCart = () => {
+        setStateShowCart(false);
+    }
     return (
         <nav className="bg-sky-700 flex gap-2 items-center justify-evenly">
             <div>
@@ -35,7 +37,7 @@ export default function Header() {
                 )
             }
             {cart.length > 0 ?
-                stateShowCart && <Cart stateShowCart={stateShowCart}/> :
+                stateShowCart && <Cart showCart={handleCloseCart}/> :
                 ''}
         </nav>
     )

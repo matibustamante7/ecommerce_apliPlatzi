@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM_CART } from "./Types";
+import { ADD_TO_CART, CLEAR_CART, REMOVE_ITEM_CART , TOTAL_PRICE_CART} from "./Types";
 
 export default (state, action) => {
 
@@ -10,7 +10,7 @@ export default (state, action) => {
             
             return {
                 ...state,
-                cart: [...state.cart, payload]
+                cart: payload
             }
         case CLEAR_CART:
             // console.log(`item ${payload} llego a reducer`);
@@ -20,10 +20,16 @@ export default (state, action) => {
                 cart: payload
             }
         case REMOVE_ITEM_CART:
-            console.log(`item a eliminar con id ${payload} llego a reducer`);
+            // console.log(`item a eliminar con id ${payload} llego a reducer`);
             return {
                 ...state,
                 cart: payload
+            }
+        case TOTAL_PRICE_CART:
+            console.log(payload);
+            return {
+                ...state,
+                totalCart: payload
             }
         default:
             break;
