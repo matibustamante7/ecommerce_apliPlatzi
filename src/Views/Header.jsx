@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import SearchBar from "../components/SearchBar/SearchBar";
-import SubMenu from "../components/SubMenu/SubMenu";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "../components/Cart/Cart";
@@ -21,14 +20,12 @@ export default function Header() {
         setStateShowCart(false);
     }
     return (
-        <nav className="bg-sky-700 flex gap-2 items-center justify-evenly">
+        <nav className="bg-sky-700 flex gap-2 p-2 items-center justify-evenly fixed z-100 w-full">
             <div className="w-40">
                 <img src="../../public/codeStore.png" alt="Code Store" />
             </div>
-            <div>
-                <SearchBar />
-                {/* <SubMenu /> */}
-            </div>
+            <SearchBar />
+
             <FontAwesomeIcon icon={faCartShopping}
                 className=" text-zinc-300 text-4xl hover:text-zinc-400 hover:shadow-xl hover:cursor-pointer relative"
                 onClick={handleShowCart} />
@@ -40,7 +37,7 @@ export default function Header() {
                 )
             }
             {cart.length > 0 ?
-                stateShowCart && <Cart showCart={handleCloseCart}/> :
+                stateShowCart && <Cart showCart={handleCloseCart} /> :
                 ''}
         </nav>
     )
