@@ -2,6 +2,7 @@ import axios from "axios";
 import ProductsReducer from "./ProductsReducer";
 import { useReducer } from "react";
 import ProductsContext from "./ProductsContext";
+import { FILTER_BY_CATEGORY, FILTER_RANGE_PRICE, GET_ALL_PRODUCTS, GET_PRODUCT_BY_ID, SEARCH_PRODUCT } from "../Types";
 
 
 export default function ProductsState(props) {
@@ -19,7 +20,7 @@ export default function ProductsState(props) {
         const results = data.data;
         // console.log(results);
         dispatch({
-            type: 'GET_ALL_PRODUCTS',
+            type: GET_ALL_PRODUCTS,
             payload: results
         })
     }
@@ -30,7 +31,7 @@ export default function ProductsState(props) {
         const results = data.data;
         // console.log(results);
         dispatch({
-            type: 'GET_PRODUCT_BY_ID',
+            type: GET_PRODUCT_BY_ID,
             payload: results
         })
     }
@@ -42,7 +43,7 @@ export default function ProductsState(props) {
         const results = data.data;
 
         dispatch({
-            type:'SEARCH_PRODUCT',
+            type:SEARCH_PRODUCT,
             payload:results
         })
     }
@@ -54,7 +55,7 @@ export default function ProductsState(props) {
         const results = data.data;
 
         dispatch({
-            type:'FILTER_BY_CATEGORY',
+            type:FILTER_BY_CATEGORY,
             payload:results
         })
     }
@@ -66,7 +67,7 @@ export default function ProductsState(props) {
         const results = data.data;
 
         dispatch({
-            type:'FILTER_RANGE_PRICE',
+            type:FILTER_RANGE_PRICE,
             payload:results
         })
     }

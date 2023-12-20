@@ -26,7 +26,7 @@ export default (state, action) => {
                 cart: payload
             }
         case TOTAL_PRICE_CART:
-            console.log(payload);
+            // console.log(payload);
             return {
                 ...state,
                 totalCart: payload

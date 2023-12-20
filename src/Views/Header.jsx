@@ -22,9 +22,12 @@ export default function Header() {
     }
     return (
         <nav className="bg-sky-700 flex gap-2 items-center justify-evenly">
+            <div className="w-40">
+                <img src="../../public/codeStore.png" alt="Code Store" />
+            </div>
             <div>
                 <SearchBar />
-                <SubMenu />
+                {/* <SubMenu /> */}
             </div>
             <FontAwesomeIcon icon={faCartShopping}
                 className=" text-zinc-300 text-4xl hover:text-zinc-400 hover:shadow-xl hover:cursor-pointer relative"

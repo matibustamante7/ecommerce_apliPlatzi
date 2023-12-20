@@ -79,10 +79,10 @@ export default function Cart(props) {
                                             <div className="flex flex-1 items-end justify-between text-sm">
                                                 <p className="text-gray-500">Quantity: {product?.quantity}</p>
 
-                                                <div className="flex">
+                                                <div className="flex gap-2">
                                                     <button
                                                         type="button"
-                                                        className="font-medium text-red-600 hover:text-red-500"
+                                                        className="font-medium text-red-600 hover:text-red-500 text-lg border-2 w-6 rounded-xl"
                                                         onClick={() => handleRemoveItemCart(product)}
                                                     >
                                                         -
@@ -90,7 +90,7 @@ export default function Cart(props) {
                                                     <br />
                                                     <button
                                                         type="button"
-                                                        className="font-medium text-red-600 hover:text-red-500"
+                                                        className="font-medium text-red-600 hover:text-red-500 text-lg border-2  w-6 rounded-xl"
                                                         onClick={() => handleAddNewItem(product)}
                                                     >
                                                         +
