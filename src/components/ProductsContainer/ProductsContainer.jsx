@@ -14,7 +14,7 @@ export default function ProductsContainer() {
 
             <h1 className='text-4xl mb-4 font-bold tracking-tight text-gray-900 text-center'>All Products</h1>
 
-            <div  style={{ display: 'flex', flexDirection: "row", flexWrap: 'wrap', gap: '1rem' }}>
+            <div className='flex flex-row flex-wrap gap-1'>
 
                 {
                     products.length > 0 ?
