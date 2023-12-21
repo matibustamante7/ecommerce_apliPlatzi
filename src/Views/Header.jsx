@@ -4,11 +4,13 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "../components/Cart/Cart";
 import CartContext from "../context/Cart/CartContext";
+import { useLocation } from "react-router-dom";
 
 
 export default function Header() {
 
     const { cart } = useContext(CartContext)
+    const location = useLocation();
 
     const [stateShowCart, setStateShowCart] = useState(false);
 
@@ -37,7 +39,7 @@ export default function Header() {
                 )
             }
             {cart.length > 0 ?
-                stateShowCart && <Cart showCart={handleCloseCart} /> :
+                stateShowCart && <Cart showCart={handleCloseCart} currentPath={location.pathname}/> :
                 ''}
         </nav>
     )

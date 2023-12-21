@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import CartContext from '../../context/Cart/CartContext'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AddItemAlert from "../Alerts/AddItemAlert";
 import RemoveItemAlert from "../Alerts/RemoveItemAlert";
 
@@ -12,6 +12,7 @@ export default function Cart(props) {
 
     const [stateItem, setStateItem] = useState(3)
 
+    const navigate = useNavigate()
 
     const handleRemoveAll = () => {
         clearCart()
@@ -38,13 +39,21 @@ export default function Cart(props) {
         }, 1000);
     }
 
+    const handleGoToCheckout = () => {
+        navigate('/checkout')
+    }
 
     useEffect(() => {
         countTotalCart(cart)
     }, [cart]);
+    // estilos default absolute top-0 right-0 overflow-hidden bg-zinc-100 flex justify-end w-min shadow-xl
+
+    const location = useLocation();
+
+
 
     return (
-        <div className=" absolute top-0 right-0 overflow-hidden bg-zinc-100 flex justify-end w-min shadow-xl ">
+        <div className="absolute top-0 right-0 overflow-hidden bg-zinc-100 flex justify-end w-min shadow-xl">
 
             <div className=" overflow-hidden ">
 
@@ -60,7 +69,7 @@ export default function Cart(props) {
 
                 <div className="flex p-10 flex-col gap-6 w-full">
 
-                <p className="text-xl ">Cart</p>
+                    <p className="text-xl ">Cart</p>
 
 
                     <div className="flow-root max-h-96 overflow-y-auto">
@@ -122,7 +131,12 @@ export default function Cart(props) {
                         <p>Total: ${totalCart}</p>
                     </div>
                     <div className=" flex justify-center ">
-                        <button className="text-xl w-full text-white py-2 px-4 bg-sky-600 rounded-xl hover:bg-sky-500">Go to checkout</button>
+                        {
+                            location.pathname === '/checkout' ?
+                                <button className="text-xl w-full text-white py-2 px-4 bg-sky-600 rounded-xl hover:bg-sky-500">Shop</button> :
+                                <button className="text-xl w-full text-white py-2 px-4 bg-sky-600 rounded-xl hover:bg-sky-500"
+                                    onClick={handleGoToCheckout}>Go to checkout</button>
+                        }
                     </div>
                     <div className=" flex justify-center">
                         {
