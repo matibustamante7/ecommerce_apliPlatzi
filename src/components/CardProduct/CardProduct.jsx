@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/Cart/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,15 +11,23 @@ export default function CardProduct(product) {
 
     const prod = product.product;
 
+    const [stateItem, setStateItem] = useState(3)
+
+
     // console.log(product.product);
     const handleAddtoCart = (product) =>{
         // console.log(product);
         addToCart(product)
+        setStateItem(2)
+        setTimeout(() => {
+            setStateItem(3)
+        }, 1000);
     }
 
+    console.log(stateItem);
     return (
 
-        <div className="mx-auto max-w-2xl p-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 shadow-xl">
+        <div className="mx-auto max-w-2xl p-6 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 shadow-xl ">
             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                 <Link to={`/${prod.id}`}>
                     <img src={prod?.images[0]} alt={prod.title} className="h-full w-full object-cover object-center lg:h-full lg:w-full" />

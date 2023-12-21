@@ -16,17 +16,26 @@ export default function Cart(props) {
     const handleRemoveAll = () => {
         clearCart()
         setStateItem(0)
+        setTimeout(() => {
+            setStateItem(3)
+        }, 1000);
     }
 
     const handleRemoveItemCart = (prod) => {
         removeItemCart(prod)
         setStateItem(1)
+        setTimeout(() => {
+            setStateItem(3)
+        }, 1000);
     }
 
     const handleAddNewItem = (prod) => {
         // countTotalCart(cart);
         addToCart(prod)
         setStateItem(2)
+        setTimeout(() => {
+            setStateItem(3)
+        }, 1000);
     }
 
 
@@ -35,23 +44,26 @@ export default function Cart(props) {
     }, [cart]);
 
     return (
-        <div className=" absolute top-0 right-0 overflow-hidden bg-zinc-100 flex justify-end w-min shadow-xl">
+        <div className=" absolute top-0 right-0 overflow-hidden bg-zinc-100 flex justify-end w-min shadow-xl ">
 
             <div className=" overflow-hidden ">
 
                 <div className=" flex fixed items-center top-10 right-10">
                     <button
-                        
+
                     >
-                        <FontAwesomeIcon 
-                        onClick={() => props.showCart(false)} className="flex items-center gap-2 p-2 text-xl rounded-xl text-zinc-700  hover:text-red-500 " icon={faX} />
+                        <FontAwesomeIcon
+                            onClick={() => props.showCart(false)} className="flex items-center gap-2 p-2 text-xl rounded-xl text-zinc-700  hover:text-red-500 " icon={faX} />
                     </button>
                 </div>
 
 
-                <div className="p-10 mt-10 flex flex-col gap-6        ">
-                    <p className="text-xl">Cart</p>
-                    <div className="flow-root">
+                <div className="flex p-10 flex-col gap-6 w-full">
+
+                <p className="text-xl ">Cart</p>
+
+
+                    <div className="flow-root max-h-96 overflow-y-auto">
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
                             {cart.map((product, index) => (
                                 <li key={index} className="flex py-6">
@@ -75,7 +87,7 @@ export default function Cart(props) {
                                             </div>
                                         </div>
                                         <div className="flex flex-1 items-end justify-between text-sm">
-                                            <p className="text-gray-500">Quantity: {product?.quantity}</p>
+                                            <p className="text-gray-500">Quantity: <b className="font-bold text-gray-800">{product?.quantity}</b></p>
 
                                             <div className="flex gap-1 items-center justify-center">
                                                 <button
