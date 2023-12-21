@@ -20,7 +20,7 @@ export default function Header() {
         setStateShowCart(false);
     }
     return (
-        <nav className="bg-sky-700 flex gap-2 p-2 items-center justify-evenly fixed z-100 w-full">
+        <nav className="bg-sky-700 flex gap-2 p-2 items-center justify-evenly fixed z-50 w-full">
             <div className="w-40">
                 <img src="../../public/codeStore.png" alt="Code Store" />
             </div>

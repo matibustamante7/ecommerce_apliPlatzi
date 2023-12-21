@@ -37,7 +37,7 @@ export default function CardDetail() {
 
 
 
-                <div className="flex items-center justify-center w-2/4 m-auto">
+                <div className="flex items-center justify-center w-2/4 m-auto ">
                     {/* {
                         productDetail.images?.map((img, index) => (
                             <img src={img} key={index} className="h-full w-full object-cover object-center" />

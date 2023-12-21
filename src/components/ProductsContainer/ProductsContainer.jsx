@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react'
 import ProductsContext from '../../context/Products/ProductsContext'
 import CardProduct from '../CardProduct/CardProduct'
+import NoFindProducts from '../Alerts/NoFindProducts'
 
 export default function ProductsContainer() {
     const { getAllProducts, products } = useContext(ProductsContext)
@@ -14,14 +15,14 @@ export default function ProductsContainer() {
 
             <h1 className='text-4xl mb-4 font-bold tracking-tight text-gray-900 text-center'>All Products</h1>
 
-            <div className='flex flex-row flex-wrap gap-1'>
+            <div className='flex flex-row flex-wrap gap-4'>
 
                 {
                     products.length > 0 ?
                     products?.map((product) => (
                         <CardProduct product={product} key={product.id} />
                     )) : 
-                    <h3>No existe el producto</h3>
+                    <NoFindProducts/>
                 }
             </div>
         </div>
